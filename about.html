@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Akshaya Varshini</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+
+        header {
+            position: relative;
+            background: url('header-bg.jpg') no-repeat center center / cover;
+            height: 250px;
+            color: white;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(109, 40, 217, 0.8); /* Purple overlay */
+            z-index: 1;
+        }
+
+        header .content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 18px;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .profile {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+        }
+
+        .profile img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-right: 20px;
+            border: 4px solid #6d28d9;
+        }
+
+        .profile-text {
+            flex: 1;
+        }
+
+        .profile-text h2 {
+            margin: 0;
+            font-size: 28px;
+            color: #4b5563;
+        }
+
+        .profile-text p {
+            font-size: 16px;
+            color: #6b7280;
+            margin: 10px 0;
+        }
+
+        .details {
+            padding: 20px 30px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .details h3 {
+            margin-top: 0;
+            color: #6d28d9;
+            font-size: 20px;
+        }
+
+        .details ul {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0;
+            color: #374151;
+        }
+
+        .details ul li {
+            font-size: 16px;
+            margin: 8px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #6d28d9;
+            color: white;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="content">
+            <h1>Marreddy Akshaya Varshini</h1>
+            <p>Passionate Web Developer & Innovator</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="profile">
+            <img src="profile.jpg" alt="Profile picture of Akshaya Varshini">
+            <div class="profile-text">
+                <h2>Who I Am</h2>
+                <p>
+                    I specialize in crafting modern, user-friendly web applications using cutting-edge technologies.
+                </p>
+            </div>
+        </div>
+
+        <div class="details">
+            <h3>What I Do</h3>
+            <ul>
+                <li>Design and develop user-centric web applications</li>
+                <li>Proficient in React, Django, and PostgreSQL</li>
+                <li>Build seamless front-end interfaces and scalable back-end solutions</li>
+                <li>Passionate about creating accessible and impactful digital tools</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 Akshaya Varshini. All rights reserved.
+    </footer>
+</body>
+</html>
