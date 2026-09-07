@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio — Marreddy Akshaya Varshini</title>
+  <title>Marreddy Akshaya Varshini</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap"
+    rel="stylesheet" />
   <style>
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
     :root {
-      --bg: #f7f5f0;
+      --bg: #eef2f6;
       --surface: #ffffff;
-      --border: rgba(0, 0, 0, 0.08);
-      --border-med: rgba(0, 0, 0, 0.14);
-      --text-primary: #1a1814;
-      --text-secondary: #6b6860;
-      --text-muted: #a09e99;
-      --accent: #3d3bcc;
-      --accent-light: #eeeefa;
-      --accent-mid: #7f77dd;
+      --border: rgba(21, 33, 46, 0.09);
+      --border-med: rgba(21, 33, 46, 0.16);
+      --text-primary: #17222d;
+      --text-secondary: #58636e;
+      --text-muted: #97a1aa;
+      --accent: #3d6d95;
+      --accent-light: #e3ecf3;
+      --accent-mid: #7ea2c0;
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
@@ -87,6 +92,15 @@
     .hero {
       padding: 4.5rem 0 4rem;
       border-bottom: 0.5px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2.5rem;
+    }
+
+    .hero-copy {
+      flex: 1;
+      min-width: 0;
     }
 
     .hero-eyebrow {
@@ -124,6 +138,30 @@
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
+    }
+
+    /* ── Profile picture ── */
+    .hero-photo {
+      flex-shrink: 0;
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--surface);
+      outline: 1px solid var(--accent-mid);
+      outline-offset: 4px;
+      background: var(--accent-light);
+      box-shadow: 0 8px 24px rgba(23, 34, 45, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     /* ── Section ── */
@@ -224,6 +262,11 @@
       border: 0.5px solid var(--border);
       border-radius: var(--radius-lg);
       padding: 1.4rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .sh-card:last-child {
+      margin-bottom: 0;
     }
 
     .sh-top {
@@ -353,7 +396,7 @@
     }
 
     .btn.primary:hover {
-      background: #3230a8;
+      background: #2c526f;
     }
 
     .resume-placeholder {
@@ -412,27 +455,70 @@
 
     /* ── Fade in on load ── */
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    .hero, nav, .section, #resume, footer {
+    .hero,
+    nav,
+    .section,
+    #resume,
+    footer {
       animation: fadeUp 0.5s ease both;
     }
 
-    nav  { animation-delay: 0.05s; }
-    .hero { animation-delay: 0.12s; }
-    .section:nth-of-type(1) { animation-delay: 0.18s; }
-    .section:nth-of-type(2) { animation-delay: 0.22s; }
-    .section:nth-of-type(3) { animation-delay: 0.26s; }
-    #resume { animation-delay: 0.3s; }
-    footer  { animation-delay: 0.34s; }
+    nav {
+      animation-delay: 0.05s;
+    }
+
+    .hero {
+      animation-delay: 0.12s;
+    }
+
+    .section:nth-of-type(1) {
+      animation-delay: 0.18s;
+    }
+
+    .section:nth-of-type(2) {
+      animation-delay: 0.22s;
+    }
+
+    .section:nth-of-type(3) {
+      animation-delay: 0.26s;
+    }
+
+    #resume {
+      animation-delay: 0.3s;
+    }
+
+    footer {
+      animation-delay: 0.34s;
+    }
 
     /* ── Responsive ── */
     @media (max-width: 640px) {
+
       .card-grid.col-3,
       .card-grid.col-2 {
         grid-template-columns: 1fr;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        align-items: flex-start;
+      }
+
+      .hero-photo {
+        width: 104px;
+        height: 104px;
+        outline-offset: 3px;
       }
 
       .hero h1 {
@@ -453,6 +539,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <div class="wrap">
@@ -461,25 +548,34 @@
     <nav>
       <span class="nav-name">Marreddy Akshaya Varshini</span>
       <ul class="nav-links">
-        <li><a href="#work">work</a></li>
-        <li><a href="#superherooo">experience</a></li>
+        <li><a href="#projects">projects</a></li>
+        <li><a href="#experience">experience</a></li>
         <li><a href="#resume">resume</a></li>
+        <li><a href="interview_experience.html"></a></li>
       </ul>
     </nav>
 
     <!-- Hero -->
     <section class="hero">
-      <p class="hero-eyebrow">Portfolio · 2026</p>
-      <h1>Building things,<br><em>breaking</em> things.</h1>
-      <p>QA intern, data wrangler, and personal project tinkerer. I care about quality, clean processes, and getting stuff done right.</p>
-      <div class="hero-tags">
-        <span class="pill">QA Testing</span>
-        <span class="pill">Personal Projects</span>
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Portfolio · 2026</p>
+        <h1>Building things,<br><em>breaking</em> things.</h1>
+        <p>Student intern, Full Stack intern, QA intern, data wrangler, and personal project tinkerer. I care about
+          quality, clean processes, and getting stuff done right.</p>
+        <div class="hero-tags">
+          <span class="pill">Python Full Stack</span>
+          <span class="pill">QA Testing</span>
+          <span class="pill">Personal Projects</span>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <!-- Replace profile.jpg with your own photo file, kept in the same folder as this HTML file -->
+        <img src="professional-pic1.jpg" alt="Marreddy Akshaya Varshini" />
       </div>
     </section>
 
     <!-- Personal Projects -->
-    <section class="section" id="work">
+    <section class="section" id="projects">
       <div class="section-header">
         <span class="section-label">Personal projects</span>
         <span class="section-line"></span>
@@ -488,7 +584,8 @@
         <div class="card">
           <p class="card-num">01</p>
           <h3>Dark Web Breach Monitor</h3>
-          <p>It's a monitoring dashboard that leverages breach APIs like Have I Been Pwned to alert users the moment their credentials appear in any new database leak.</p>
+          <p>It's a monitoring dashboard that leverages breach APIs like Have I Been Pwned to alert users the moment
+            their credentials appear in any new database leak.</p>
           <div class="card-pills">
             <span class="pill">HIBP API</span>
             <span class="pill">Flask</span>
@@ -497,7 +594,8 @@
         <div class="card">
           <p class="card-num">02</p>
           <h3>Society Design</h3>
-          <p>It's a safety-focused project designed for gated communities, enabling secure resident management, visitor entry approvals, and QR-based gatepasses.</p>
+          <p>It's a safety-focused project designed for gated communities, enabling secure resident management, visitor
+            entry approvals, and QR-based gatepasses.</p>
           <div class="card-pills">
             <span class="pill">FastAPI</span>
             <span class="pill">React</span>
@@ -506,7 +604,8 @@
         <div class="card">
           <p class="card-num">03</p>
           <h3>Password Strength Checker</h3>
-          <p>Checks the password strength by considering factors like length, uppercase, lowercase, special characters.</p>
+          <p>Checks the password strength by considering factors like length, uppercase, lowercase, special characters.
+          </p>
           <div class="card-pills">
             <span class="pill">Flask</span>
           </div>
@@ -540,8 +639,58 @@
       </div>
     </section>
 
-    <!-- Superherooo QA -->
-    <section class="section" id="superherooo">
+    <!-- Experience -->
+    <section class="section" id="experience">
+      <div class="section-header">
+        <span class="section-label">Nokia — Student Intern</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="sh-card">
+        <div class="sh-top">
+          <div class="sh-icon">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 1.5L11.2 6.5H16.5L12.4 9.6L14 15L9 11.8L4 15L5.6 9.6L1.5 6.5H6.8L9 1.5Z" fill="#3d6d95" />
+            </svg>
+          </div>
+          <div>
+            <p class="sh-title">Nokia</p>
+            <p class="sh-sub">Student Intern</p>
+          </div>
+        </div>
+        <ul class="sh-points">
+          <li>
+            <span class="sh-dot"></span>
+            <span>Yet to start</span>
+          </li>
+        </ul>
+      </div>
+      <div class="section-header">
+        <span class="section-label">Examate.in — Python Full Stack Training Intern</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="sh-card">
+        <div class="sh-top">
+          <div class="sh-icon">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 1.5L11.2 6.5H16.5L12.4 9.6L14 15L9 11.8L4 15L5.6 9.6L1.5 6.5H6.8L9 1.5Z" fill="#3d6d95" />
+            </svg>
+          </div>
+          <div>
+            <p class="sh-title">Examate.in</p>
+            <p class="sh-sub">Python Full Stack Training Intern</p>
+          </div>
+        </div>
+        <ul class="sh-points">
+          <li>
+            <span class="sh-dot"></span>
+            <span>Trained students on full-stack web development using Python, React, FastAPI, and MySQL.</span>
+          </li>
+          <li>
+            <span class="sh-dot"></span>
+            <span>Assisted learners with debugging, code optimization, and project implementation.</span>
+          </li>
+        </ul>
+      </div>
       <div class="section-header">
         <span class="section-label">Superherooo — QA Testing Intern</span>
         <span class="section-line"></span>
@@ -550,7 +699,7 @@
         <div class="sh-top">
           <div class="sh-icon">
             <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M9 1.5L11.2 6.5H16.5L12.4 9.6L14 15L9 11.8L4 15L5.6 9.6L1.5 6.5H6.8L9 1.5Z" fill="#7F77DD"/>
+              <path d="M9 1.5L11.2 6.5H16.5L12.4 9.6L14 15L9 11.8L4 15L5.6 9.6L1.5 6.5H6.8L9 1.5Z" fill="#3d6d95" />
             </svg>
           </div>
           <div>
@@ -576,33 +725,28 @@
     </section>
 
     <!-- Resume -->
-<section id="resume">
-  <div class="section-header">
-    <span class="section-label">Resume</span>
-    <span class="section-line"></span>
-  </div>
-
-  <div class="resume-embed">
-    
-    <!-- Toolbar -->
-    <div class="resume-toolbar">
-      <span>Marreddy Akshaya Varshini.pdf</span>
-      <div class="btns">
-        <a href="resume.pdf" target="_blank" class="btn">View</a>
-        <a href="resume.pdf" download class="btn primary">Download</a>
+    <section id="resume">
+      <div class="section-header">
+        <span class="section-label">Resume</span>
+        <span class="section-line"></span>
       </div>
-    </div>
 
-    <!-- ✅ PDF Viewer -->
-    <iframe
-      class="resume-iframe"
-      src="resume.pdf"
-      style="display: block;"
-      title="Resume PDF">
-    </iframe>
+      <div class="resume-embed">
 
-  </div>
-</section>
+        <!-- Toolbar -->
+        <div class="resume-toolbar">
+          <span>Marreddy Akshaya Varshini</span>
+          <div class="btns">
+            <a href="resume.pdf" target="_blank" class="btn">View</a>
+            <a href="resume.pdf" download class="btn primary">Download</a>
+          </div>
+        </div>
+
+        <iframe class="resume-iframe" src="resume.pdf" style="display: block;" title="Resume">
+        </iframe>
+
+      </div>
+    </section>
     <!-- Footer -->
     <footer>
       <span>© 2026 Marreddy Akshaya Varshini</span>
@@ -616,4 +760,5 @@
   </div>
 
 </body>
+
 </html>
