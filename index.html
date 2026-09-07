@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio — Marreddy Akshaya Varshini</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg: #f7f5f0;
+      --surface: #ffffff;
+      --border: rgba(0, 0, 0, 0.08);
+      --border-med: rgba(0, 0, 0, 0.14);
+      --text-primary: #1a1814;
+      --text-secondary: #6b6860;
+      --text-muted: #a09e99;
+      --accent: #3d3bcc;
+      --accent-light: #eeeefa;
+      --accent-mid: #7f77dd;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 16px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── Layout ── */
+    .wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── Nav ── */
+    nav {
+      padding: 1.75rem 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .nav-name {
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--text-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 4.5rem 0 4rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 6vw, 58px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--text-primary);
+      margin-bottom: 1.4rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      max-width: 480px;
+      line-height: 1.8;
+    }
+
+    .hero-tags {
+      margin-top: 1.75rem;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Section ── */
+    .section {
+      padding: 3rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    .section-line {
+      flex: 1;
+      height: 0.5px;
+      background: var(--border);
+    }
+
+    /* ── Cards ── */
+    .card-grid {
+      display: grid;
+      gap: 10px;
+    }
+
+    .card-grid.col-3 {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .card-grid.col-2 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.3rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--border-med);
+      transform: translateY(-1px);
+    }
+
+    .card-num {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .card h3 {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-primary);
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    .card-pills {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    /* ── Pills / Tags ── */
+    .pill {
+      display: inline-block;
+      font-size: 11px;
+      padding: 3px 9px;
+      border-radius: 99px;
+      border: 0.5px solid var(--border);
+      color: var(--text-secondary);
+      background: var(--bg);
+    }
+
+    /* ── Superherooo card ── */
+    .sh-card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem;
+    }
+
+    .sh-top {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 1.1rem;
+      padding-bottom: 1rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .sh-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sh-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    .sh-title {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .sh-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 1px;
+    }
+
+    .sh-points {
+      list-style: none;
+    }
+
+    .sh-points li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      padding: 7px 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .sh-points li:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .sh-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-mid);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    /* ── Resume ── */
+    #resume {
+      padding: 3rem 0;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .resume-embed {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .resume-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 1.25rem;
+      border-bottom: 0.5px solid var(--border);
+      background: var(--bg);
+    }
+
+    .resume-toolbar span {
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    .resume-toolbar .btns {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      border: 0.5px solid var(--border-med);
+      background: var(--surface);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: background 0.15s, border-color 0.15s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .btn:hover {
+      background: var(--bg);
+      border-color: var(--border-med);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    .btn.primary:hover {
+      background: #3230a8;
+    }
+
+    .resume-placeholder {
+      height: 480px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+
+    .resume-placeholder svg {
+      width: 40px;
+      height: 40px;
+      opacity: 0.3;
+    }
+
+    /* for when PDF is embedded */
+    .resume-iframe {
+      width: 100%;
+      height: 520px;
+      border: none;
+      display: none;
+    }
+
+    /* ── Footer ── */
+    footer {
+      padding: 2rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    footer span {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+    }
+
+    .social-links a {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .social-links a:hover {
+      color: var(--text-primary);
+    }
+
+    /* ── Fade in on load ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero, nav, .section, #resume, footer {
+      animation: fadeUp 0.5s ease both;
+    }
+
+    nav  { animation-delay: 0.05s; }
+    .hero { animation-delay: 0.12s; }
+    .section:nth-of-type(1) { animation-delay: 0.18s; }
+    .section:nth-of-type(2) { animation-delay: 0.22s; }
+    .section:nth-of-type(3) { animation-delay: 0.26s; }
+    #resume { animation-delay: 0.3s; }
+    footer  { animation-delay: 0.34s; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .card-grid.col-3,
+      .card-grid.col-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 34px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <!-- Nav -->
+    <nav>
+      <span class="nav-name">Marreddy Akshaya Varshini</span>
+      <ul class="nav-links">
+        <li><a href="#work">work</a></li>
+        <li><a href="#superherooo">experience</a></li>
+        <li><a href="#resume">resume</a></li>
+      </ul>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <p class="hero-eyebrow">Portfolio · 2026</p>
+      <h1>Building things,<br><em>breaking</em> things.</h1>
+      <p>QA intern, data wrangler, and personal project tinkerer. I care about quality, clean processes, and getting stuff done right.</p>
+      <div class="hero-tags">
+        <span class="pill">QA Testing</span>
+        <span class="pill">Personal Projects</span>
+      </div>
+    </section>
+
+    <!-- Personal Projects -->
+    <section class="section" id="work">
+      <div class="section-header">
+        <span class="section-label">Personal projects</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="card-grid col-3">
+        <div class="card">
+          <p class="card-num">01</p>
+          <h3>Dark Web Breach Monitor</h3>
+          <p>It's a monitoring dashboard that leverages breach APIs like Have I Been Pwned to alert users the moment their credentials appear in any new database leak.</p>
+          <div class="card-pills">
+            <span class="pill">HIBP API</span>
+            <span class="pill">Flask</span>
+          </div>
+        </div>
+        <div class="card">
+          <p class="card-num">02</p>
+          <h3>Society Design</h3>
+          <p>It's a safety-focused project designed for gated communities, enabling secure resident management, visitor entry approvals, and QR-based gatepasses.</p>
+          <div class="card-pills">
+            <span class="pill">FastAPI</span>
+            <span class="pill">React</span>
+          </div>
+        </div>
+        <div class="card">
+          <p class="card-num">03</p>
+          <h3>Password Strength Checker</h3>
+          <p>Checks the password strength by considering factors like length, uppercase, lowercase, special characters.</p>
+          <div class="card-pills">
+            <span class="pill">Flask</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Other works -->
+    <section class="section">
+      <div class="section-header">
+        <span class="section-label">Other works</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="card-grid col-2">
+        <div class="card">
+          <p class="card-num">01</p>
+          <h3>Data Entry</h3>
+          <p>Used excel to enter the debit card statements for an E-Commerce company located in Delhi.</p>
+          <div class="card-pills">
+            <span class="pill">Excel</span>
+          </div>
+        </div>
+        <div class="card">
+          <p class="card-num">02</p>
+          <h3>PPT Design</h3>
+          <p>Designed a powerpoint presentation for a conference presentation.</p>
+          <div class="card-pills">
+            <span class="pill">PowerPoint</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Superherooo QA -->
+    <section class="section" id="superherooo">
+      <div class="section-header">
+        <span class="section-label">Superherooo — QA Testing Intern</span>
+        <span class="section-line"></span>
+      </div>
+      <div class="sh-card">
+        <div class="sh-top">
+          <div class="sh-icon">
+            <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 1.5L11.2 6.5H16.5L12.4 9.6L14 15L9 11.8L4 15L5.6 9.6L1.5 6.5H6.8L9 1.5Z" fill="#7F77DD"/>
+            </svg>
+          </div>
+          <div>
+            <p class="sh-title">Superherooo</p>
+            <p class="sh-sub">QA Testing Intern</p>
+          </div>
+        </div>
+        <ul class="sh-points">
+          <li>
+            <span class="sh-dot"></span>
+            <span>Performed exploratory and functional testing as part of Quality Assurance team</span>
+          </li>
+          <li>
+            <span class="sh-dot"></span>
+            <span>Identified bugs and worked alongside CTO and Founder to ensure smoother user experience</span>
+          </li>
+          <li>
+            <span class="sh-dot"></span>
+            <span>Suggested a few changes to improve user engagement in the app</span>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Resume -->
+<section id="resume">
+  <div class="section-header">
+    <span class="section-label">Resume</span>
+    <span class="section-line"></span>
+  </div>
+
+  <div class="resume-embed">
+    
+    <!-- Toolbar -->
+    <div class="resume-toolbar">
+      <span>Marreddy Akshaya Varshini.pdf</span>
+      <div class="btns">
+        <a href="resume.pdf" target="_blank" class="btn">View</a>
+        <a href="resume.pdf" download class="btn primary">Download</a>
+      </div>
+    </div>
+
+    <!-- ✅ PDF Viewer -->
+    <iframe
+      class="resume-iframe"
+      src="resume.pdf"
+      style="display: block;"
+      title="Resume PDF">
+    </iframe>
+
+  </div>
+</section>
+    <!-- Footer -->
+    <footer>
+      <span>© 2026 Marreddy Akshaya Varshini</span>
+      <div class="social-links">
+        <a href="https://linkedin.com/in/akshayavarshini" target="_blank">LinkedIn</a>
+        <a href="https://github.com/mav01-code" target="_blank">GitHub</a>
+        <a href="mailto:marreddywork@gmail.com">Email</a>
+      </div>
+    </footer>
+
+  </div>
+
+</body>
+</html>
